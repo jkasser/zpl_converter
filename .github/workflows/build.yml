@@ -1,14 +1,44 @@
+name: Build and Release EXE
 on:
   push:
+    tags:
+      - 'v*'
 
 jobs:
   build:
     runs-on: 'ubuntu-latest'
     steps:
     - uses: actions/checkout@v4
+
     - uses: actions/setup-python@v5
       with:
         python-version: 3.12
 
-    - run: pip install -r requirements.txt pyinstaller
-    - run: pyinstaller zpl_converter.py --onefile
+    - name: Install dependencies
+      run: pip install -r requirements.txt pyinstaller
+
+    - name: Build EXE with PyInstaller
+      run: pyinstaller zpl_converter.py --onefile
+
+    - name: Upload executable to artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: ZPL_Converter
+        path: dist/zpl_converter.exe
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ZPL_Converter
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/zpl_converter.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
