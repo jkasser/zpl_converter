@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: 'ubuntu-latest'
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
 
@@ -20,8 +20,11 @@ jobs:
     - name: Build EXE with PyInstaller
       run: pyinstaller zpl_converter.py --onefile
 
+    - name: List files in dist directory
+      run: ls -alh dist/
+
     - name: Upload executable to artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: ZPL_Converter
         path: dist/zpl_converter.exe
@@ -32,7 +35,7 @@ jobs:
 
     steps:
       - name: Download build artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: ZPL_Converter
 
