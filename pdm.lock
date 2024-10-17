@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:7aa400fe79b33edadfffed1dc4f21432101fe0f0db62e36249731fb9d17c7e21"
+content_hash = "sha256:abbf2d8cd574d5fe5edc83af3dc32fcbe5dbbcd3c8c993443ce8fa9f9c0b06b9"
 
 [[metadata.targets]]
 requires_python = "==3.12.*"
@@ -56,16 +56,6 @@ groups = ["default"]
 files = [
     {file = "idna-3.10-py3-none-any.whl", hash = "sha256:946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3"},
     {file = "idna-3.10.tar.gz", hash = "sha256:12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"},
-]
-
-[[package]]
-name = "pathlib"
-version = "1.0.1"
-summary = "Object-oriented filesystem paths"
-groups = ["default"]
-files = [
-    {file = "pathlib-1.0.1-py3-none-any.whl", hash = "sha256:f35f95ab8b0f59e6d354090350b44a80a80635d22efdedfa84c7ad1cf0a74147"},
-    {file = "pathlib-1.0.1.tar.gz", hash = "sha256:6940718dfc3eff4258203ad5021090933e5c04707d5ca8cc9e73c94a7894ea9f"},
 ]
 
 [[package]]

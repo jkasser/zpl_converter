@@ -7,7 +7,6 @@ authors = [
 ]
 dependencies = [
     "setuptools>=75.2.0",
-    "pathlib>=1.0.1",
     "requests>=2.32.3",
 ]
 requires-python = "==3.12.*"
